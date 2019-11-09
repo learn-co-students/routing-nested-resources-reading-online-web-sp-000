@@ -79,7 +79,7 @@ And to handle our new filtering routes, we'll need to make some changes in our `
 **Advanced:** While a controller action would normally implicitly render a template with the same name as the method, in this case we want to leverage the templates we're already using for posts, so we call `render` explicitly with a template path. Because we're telling `render` that we're using a `template`, we don't need to include the `.html.erb` extensions. Rails figures that out for us.
 
 If we go back to our blog and try to browse to `/authors/1/posts`, we should see the posts for that author. And then if we try `/authors/1/posts/1`, we should see that post.
-
+-
 **Note:** If your IDs are different and you are having trouble with the URLs, try running `rake db:reset` to reset your IDs to the defaults in the seed file.
 
 We did it! We have much nicer URLs now. Are we done? Of course not.
@@ -212,7 +212,7 @@ In `posts/index.html.erb`, we already show the author's name, so let's add a lin
   ...
 
   <h2><%= post.title %></h2>
-  
+
   <!-- change the name to a link -->
   <h3>by: <%= link_to post.author.name, author_posts_path(post.author) %></h3>
   <p><%= post.description %></p>
