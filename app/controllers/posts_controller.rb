@@ -1,7 +1,15 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    #We added a conditional to the posts#index action to account for whether the user is trying to access the index of 
+    #all posts (Post.all) or just the index of all posts by a certain author (Author.find(params[:author_id]).posts). 
+    #Where is params[:author_id] coming from? Rails provides it for us through the nested route,
+    #Rails takes the parent resource's name and appends _id
+    if params[:author_id]
+      @posts = Author.find(params[:author_id]).posts
+    else
+      @posts = Post.all
+    end
   end
 
   def show

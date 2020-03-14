@@ -2,7 +2,16 @@
 <% @posts.each do |post| %>
   <div>
     <h2><%= post.title %></h2>
+    <!-- change the name to a link 
     <h3>by: <%= post.author.name %></h3>
+    To get to all posts nested under an author:
+    - URL is /authors/:author_id/posts, so we can combine the two conventions and use author_posts_path(author_id)
+     reload /posts and click on an author name. We should be taken to /authors/id/posts.-->
+    <h3> by: <%= link_to post.author.name, author_posts_path(post.author) %></h3>
     <p><%= post.description %></p>
   </div>
 <% end %>
+<!--why does posts_path not take an argument, but post_path(@post) does? posts_path refers to all of the posts,
+ so we're not talking about a specific post (no specific ID). When we're looking at the post_path, 
+ we're referring to a specific post, and the Rails helper needs to know which post so that it can generate the proper url
+ , e.g., posts/1 as opposed to posts/2.-->
