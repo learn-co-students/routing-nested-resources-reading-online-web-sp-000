@@ -11,7 +11,7 @@
 We're going to keep working on our blog application, augmenting it to filter posts by author in a more user-friendly and RESTful way.
 
 ### URL As Data
-
+##
 You've encountered REST already, but, just to review, it stands for REpresentational State Transfer and encapsulates a way of structuring a URL so that access to specific resources is predictable and standardized.
 
 In practice, that means that, if we type `rails s` and run our blog app, browsing to `/posts` will show us the index of all `Post` objects. And if we want to view a specific `Author`, we can guess the URL for that (as long as we know the author's `id`) by going to `/authors/:id`.
