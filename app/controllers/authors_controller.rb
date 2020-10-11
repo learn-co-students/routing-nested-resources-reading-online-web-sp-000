@@ -5,3 +5,5 @@ class AuthorsController < ApplicationController
   end
 
 end
+
+# rake routes | grep authors
