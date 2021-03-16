@@ -4,4 +4,6 @@ class AuthorsController < ApplicationController
     @author = Author.find(params[:id])
   end
 
+  # Has nested posts handled via PostsController and routes.rb
+
 end
