@@ -1,8 +1,14 @@
 class PostsController < ApplicationController
 
+
+  #this index action is to account for whether the user is trying to access the index of all posts (Post.all) or just the index of all posts by a certain author 
   def index
+    if params[:author_id]
+      @posts = Author.find(params[:author_id]).posts
+    else
     @posts = Post.all
   end
+end
 
   def show
     @post = Post.find(params[:id])
